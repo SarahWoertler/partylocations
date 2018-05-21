@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2018_05_21_141327) do
     t.integer "price"
     t.string "lat"
     t.string "lng"
-    t.string "type"
+    t.string "location_type"
     t.string "occasion"
     t.boolean "accessible"
     t.boolean "catering"
