@@ -8,7 +8,7 @@ class CreateLocations < ActiveRecord::Migration[5.2]
       t.integer :price
       t.string :lat
       t.string :lng
-      t.string :type
+      t.string :location_type
       t.string :occasion
       t.boolean :accessible
       t.boolean :catering

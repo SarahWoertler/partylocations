@@ -1,0 +1,16 @@
+<%# form_tag locations_path, method: :get do %>
+  <%# text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a location by name"
+  %>
+<% #end %>
+
+
+<h1>hello</h1>
+
+
+
+<% @avail.each do |a| %>
+<h1> <%= a.location.name %> <%= a.user.first_name %> </h1>
+<% end %>
