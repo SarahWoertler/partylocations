@@ -3,9 +3,13 @@ class LocationsController < ApplicationController
   before_action :all_vars, only: [:index] #gets all @locations, @users, @avail
 
   def index
+    @locations = policy_scope(@locations)
+    @users = policy_scope(@users)
+    @avail = policy_scope(@avail)
   end
 
   def show
+    authorize @location
   end
 
   private

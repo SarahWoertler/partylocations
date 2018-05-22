@@ -1,5 +1,28 @@
 <div class="container">
+
+  <%= link_to "New location", new_users_location_path %>
+
+  <br>
+  <br>
+
   <% @locations.each do |l| %>
-    <%= l.id %> - <%= l.name %> | <%= l.description %>
+    <% if policy(l).index? %>
+
+      <%= l.id %> - <%= l.name %> | <%= l.description %>
+
+
+      <% if policy(l).users_edit? %>
+        <%= link_to "Update", edit_users_location_path(l) %>
+      <% end %>
+
+      <% if policy(l).users_destroy? %>
+        <%= link_to "Delete", users_location_path(l), :method => :delete %>
+      <% end %>
+
+
+    <% end %>
+
+    <br>
   <% end %>
 </div>
+
