@@ -12,8 +12,7 @@ Rails.application.routes.draw do
     post "/locations/:id/booking/create", to: "availabilities#create"
 
     get "/bookings/", to: "availabilities#display", as: "my_bookings"
+    delete "/bookings/:id", to: "availabilities#destroy", as: "destroy_booking"
+
   end
-
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
