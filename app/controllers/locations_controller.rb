@@ -3,7 +3,7 @@ class LocationsController < ApplicationController
     @locations = Location.all
     @users = User.all
     @avail = Availability.all
-    # query = params[:query]
+    query = params[:query]
     # if query.present?
     #   @locations = Location.where(name: query)
     # else

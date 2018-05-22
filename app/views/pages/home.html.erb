@@ -1,1 +1,15 @@
-@locations
+
+
+<div class="banner" style="background-image: url(<%= image_path 'balloons.jpg'%>);">
+  <div class="banner-content">
+    <div class="search_bar">
+      <h2>Discover the perfect party location in your city</h2>
+      <%=simple_form_for @locations do |f| %>
+      <%= f.input :locations.name, placeholder: 'Search for a location' %>
+      <%= f.button :submit %>
+      <%end %>
+    </div>
+
+    <a class="btn btn-primary btn-lg">Start now</a>
+  </div>
+</div>
