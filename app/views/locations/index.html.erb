@@ -4,11 +4,144 @@
     class: "form-control",
     placeholder: "Find a location by name"
   %>
-<% #end %>
 
 
-<h1>hello</h1>
 
-<% @avail.each do |a| %>
-<h1> <%= a.location.name %> <%= a.user.first_name %> </h1>
-<% end %>
+
+
+<!-- Generating the html from the locations data base/ not sure if it works like that -->
+
+<div class="container">
+  <div class="main-container">
+    <div class="cards-container">
+      <% @location.each do |location| %>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://www.top10berlin.de/sites/top10berlin.de/files/styles/list_image/public/location/mainimages/2017/09/11/jamboree_bar_interior_foto_grand-hyatt-berlin.jpg?itok=vCCyi_OV);">
+            <div class="card-category"> <%= location.category %> </div>
+              <div class="card-description">
+                <h4>location.name</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div id="map" >
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Locator_map_Berlin_in_Germany.svg" alt="map placeholder">
+    </div>
+  </div>
+</div>
+
+
+
+<!-- hard coded example to work on the css -->
+<div class="container">
+<div class="main-container">
+  <div class="cards-container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://www.top10berlin.de/sites/top10berlin.de/files/styles/list_image/public/location/mainimages/2017/09/11/jamboree_bar_interior_foto_grand-hyatt-berlin.jpg?itok=vCCyi_OV);">
+          <div class="card-category"> Bar </div>
+            <div class="card-description">
+              <h4>Le Wagon Shanghai</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://www.top10berlin.de/sites/top10berlin.de/files/styles/juicebox/public/location/slider/2015/04/21/skykitchen_interieurx_2015_by-georg-roske_gr133679-792x400_1.jpg?itok=TKq4S_dc');">
+          <div class="card-category"> Restaurant </div>
+            <div class="card-description">
+              <h4>Le Wagon Shanghai</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://www.theclubmap.com/wp-content/uploads/2012/12/suicide-circus-club-berlin-3.jpg');">
+          <div class="card-category"> Club </div>
+            <div class="card-description">
+              <h4>Le Wagon Shanghai</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://www.top10berlin.de/sites/top10berlin.de/files/styles/list_image/public/location/mainimages/2017/09/11/jamboree_bar_interior_foto_grand-hyatt-berlin.jpg?itok=vCCyi_OV);">
+          <div class="card-category"> Bar </div>
+            <div class="card-description">
+              <h4>Le Wagon Shanghai</h4>
+          </div>
+        </div>
+      </div>
+    <div class="col-xs-12 col-sm-6 col-md-6">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://www.top10berlin.de/sites/top10berlin.de/files/styles/juicebox/public/location/slider/2015/04/21/skykitchen_interieurx_2015_by-georg-roske_gr133679-792x400_1.jpg?itok=TKq4S_dc');">
+        <div class="card-category">Restaurant</div>
+          <div class="card-description">
+            <h4>Le Wagon Shanghai</h4>
+          </div>
+        </div>
+      </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-6">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://www.top10berlin.de/sites/top10berlin.de/files/styles/list_image/public/location/mainimages/2017/09/11/jamboree_bar_interior_foto_grand-hyatt-berlin.jpg?itok=vCCyi_OV);">
+          <div class="card-category"> Bar </div>
+            <div class="card-description">
+              <h4>Le Wagon Shanghai</h4>
+          </div>
+        </div>
+      </div>
+    <div class="col-xs-12 col-sm-6 col-md-6">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://www.top10berlin.de/sites/top10berlin.de/files/styles/juicebox/public/location/slider/2015/04/21/skykitchen_interieurx_2015_by-georg-roske_gr133679-792x400_1.jpg?itok=TKq4S_dc');">
+        <div class="card-category">Restaurant</div>
+          <div class="card-description">
+            <h4>Le Wagon Shanghai</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://www.top10berlin.de/sites/top10berlin.de/files/styles/list_image/public/location/mainimages/2017/09/11/jamboree_bar_interior_foto_grand-hyatt-berlin.jpg?itok=vCCyi_OV);">
+          <div class="card-category"> Bar </div>
+            <div class="card-description">
+              <h4>Le Wagon Shanghai</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://www.top10berlin.de/sites/top10berlin.de/files/styles/juicebox/public/location/slider/2015/04/21/skykitchen_interieurx_2015_by-georg-roske_gr133679-792x400_1.jpg?itok=TKq4S_dc');">
+        <div class="card-category">Restaurant</div>
+          <div class="card-description">
+            <h4>Le Wagon Shanghai</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-6">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://www.top10berlin.de/sites/top10berlin.de/files/styles/list_image/public/location/mainimages/2017/09/11/jamboree_bar_interior_foto_grand-hyatt-berlin.jpg?itok=vCCyi_OV);">
+          <div class="card-category"> Bar </div>
+            <div class="card-description">
+              <h4>Le Wagon Shanghai</h4>
+          </div>
+        </div>
+      </div>
+    <div class="col-xs-12 col-sm-6 col-md-6">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://www.top10berlin.de/sites/top10berlin.de/files/styles/juicebox/public/location/slider/2015/04/21/skykitchen_interieurx_2015_by-georg-roske_gr133679-792x400_1.jpg?itok=TKq4S_dc');">
+        <div class="card-category">Restaurant</div>
+          <div class="card-description">
+            <h4>Le Wagon Shanghai</h4>
+          </div>
+        </div>
+      </div>
+    <div class="col-xs-12 col-sm-6 col-md-6">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://d5wt70d4gnm1t.cloudfront.net/media/a-s/articles/1923-649604484249/new-berlin-art-scene-900x450.jpg');">
+        <div class="card-category">Other</div>
+          <div class="card-description">
+            <h4>Le Wagon Shanghai</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div id="map" >
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Locator_map_Berlin_in_Germany.svg" alt="map placeholder">
+    </div>
+  </div>
+</div>
