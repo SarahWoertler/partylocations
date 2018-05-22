@@ -1,0 +1,27 @@
+<div class="container">
+  <% @avails.each do |a|  %>
+    <h3>Details about the Location:</h3>
+    <p>Name: <%= a.location.name %></p>
+    <p>Description: <%= a.location.description %></p>
+    <p>Size: <%= a.location.size %> m2</p>
+    <p>Capacity: <%= a.location.capacity %> People</p>
+    <p>Price: <%= a.location.price %> Euro</p>
+    <p>Location Type: <%= a.location.location_type %></p>
+    <p>Occasion: <%= a.location.occasion %></p>
+    <p>Accessible: <%= a.location.accessible %></p>
+    <p>Catering: <%= a.location.catering %></p>
+    <p>Parking: <%= a.location.parking %></p>
+    <p>Smoking: <%= a.location.smoking %></p>
+    <p>Music: <%= a.location.music %></p>
+
+    <h3>User providing the Location:</h3>
+    <p><%= a.location.user.first_name %> <%= a.location.user.last_name %> <%= a.location.user.email %></p>
+    <h3>User Booking the Location:</h3>
+    <p><%= a.user.first_name %> <%= a.user.last_name %>  <%= a.user.email %> </p>
+
+    <br>
+    <%= link_to "Cancel your booking", users_destroy_booking_path(a.id), method: 'delete', class: "btn btn-danger", data: { confirm: 'Are you sure?'} %>
+    <br>
+    <br>
+  <% end %>
+</div>
