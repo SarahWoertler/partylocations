@@ -2,12 +2,12 @@
   <div class="banner-content">
     <div class="search_bar">
       <h2>Discover the perfect party location in your city</h2>
-      <%=simple_form_for @locations do |f| %>
-      <%= f.input :locations.name, placeholder: 'Search for a location' %>
-      <%= f.button :submit %>
-      <%end %>
     </div>
 
-    <a class="btn btn-primary btn-lg">Start now</a>
+    <%= form_tag locations_path, method: :get do %>
+      <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a Location"%>
+      <%= text_field_tag :query_1, params[:query_!], class: "form-control", placeholder: "Size"%>
+    <% end %>
+
   </div>
 </div>

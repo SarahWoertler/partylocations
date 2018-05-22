@@ -4,7 +4,11 @@ class LocationsController < ApplicationController
 
   def index
 
-    query = params[:query]
+    if params[:query].present?
+      @locations = Location.where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @locations = Location.all
+    end
 
 
     @locations = policy_scope(@locations)
