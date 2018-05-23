@@ -12,12 +12,14 @@ class LocationsController < ApplicationController
 
     @locations_with_position = Location.where.not(latitude: nil, longitude: nil)
 
-    @markers = @locations_with_position.map do |flat|
+    @markers = @locations_with_position.map do |location|
       {
-        lat: flat.latitude,
-        lng: flat.longitude#,
-        # infoWindow: { content: render_to_string(partial: "/locations/map_box", locals: { flat: flat }) }
+        lat: location.latitude,
+        lng: location.longitude,
+        # setLabel(location.id)
+        label: location.id.to_s
       }
+
     end
 
 
