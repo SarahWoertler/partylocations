@@ -3,7 +3,17 @@
 <div class="container">
 
   <% @avails.each do |a|  %>
-    <h3>Details about the Location:</h3>
+
+    <h3>Rental information:</h3>
+    <br>
+
+    <h4>Booking:</h4>
+    <p>Date: <%= a.date.strftime('%A, %b %d') %></p>
+    <p>User providing the Location: <%= a.location.user.first_name %> <%= a.location.user.last_name %></p>
+    <p>Contact provider: <%= a.location.user.email %></p>
+    <br>
+
+    <h4>Location:</h4>
     <p>Name: <%= a.location.name %></p>
     <p>Description: <%= a.location.description %></p>
     <p>Size: <%= a.location.size %> m2</p>
@@ -16,14 +26,12 @@
     <p>Parking: <%= a.location.parking %></p>
     <p>Smoking: <%= a.location.smoking %></p>
     <p>Music: <%= a.location.music %></p>
+    <br>
 
-    <h3>User providing the Location:</h3>
-    <p><%= a.location.user.first_name %> <%= a.location.user.last_name %> <%= a.location.user.email %></p>
-    <h3>User Booking the Location:</h3>
+    <h4>User Booking the Location:</h4>
     <p><%= a.user.first_name %> <%= a.user.last_name %>  <%= a.user.email %> </p>
 
-    <br>
-    <%= link_to "Cancel your booking", users_destroy_booking_path(a.id), method: 'delete', class: "btn btn-danger", data: { confirm: 'Are you sure?'} %>
+    <%= link_to "Cancel your booking", users_delete_from_booking_path(a.id), method: 'patch', class: "btn btn-danger", data: { confirm: 'Are you sure?'} %>
     <br>
     <br>
   <% end %>
