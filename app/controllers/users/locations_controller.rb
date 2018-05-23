@@ -1,3 +1,5 @@
+# controller for all basic crud actions with locations
+
 class Users::LocationsController < ApplicationController
   before_action :find, only: [:edit, :update, :destroy]
 
