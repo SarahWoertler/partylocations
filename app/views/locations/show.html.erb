@@ -1,5 +1,10 @@
 <!-- show details of one single location -->
+  <div class="grid-details">
+    <div class="details-image"></div>
+    <div class="location-description">
+      <h3><%= @location.name %></h3>
+      <p><%= @location.description %></p>
+    </div>
+  </div>
+</div>
 
-<%= @location.name %>
-
-<%= link_to "Book location", users_book_path(@location) %>

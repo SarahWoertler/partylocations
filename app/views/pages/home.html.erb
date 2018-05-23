@@ -1,12 +1,14 @@
 <div class="banner" style="background-image: url(<%= image_path 'balloons.jpg'%>);">
   <div class="banner-content">
     <div class="search_bar">
-      <h2>Discover the perfect party location in your city</h2>
+      <h3 class="search-bar-header">Discover the perfect party location in your city</h3>
     </div>
 
     <%= form_tag locations_path, method: :get do %>
-      <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a Location"%>
-      <%= text_field_tag :query_1, params[:query_!], class: "form-control", placeholder: "Size"%>
+      <div class="form-input-wrapper">
+        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a Location"%>
+        <%= submit_tag 'Go', class: "button_submit" %>
+      </div>
     <% end %>
 
   </div>
