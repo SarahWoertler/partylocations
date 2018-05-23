@@ -8,11 +8,19 @@ Rails.application.routes.draw do
   namespace :users do
     resources :locations, except: [:show]
 
+    patch '/locations/availabilities/:id/accept', to: 'availabilities#accept', as: :accept_availability
+    patch '/locations/availabilities/:id/decline', to: 'availabilities#decline', as: :decline_availability
+
+    get "/locations/:id/new_availability", to: "availabilities#new_availability", as: "new_availability"
+    post "/locations/:id/create_availability", to: "availabilities#create_availability", as: "create_availability"
+
+    delete "/locations/:availability_id/delete_availability", to: "availabilities#destroy_availability", as: "destroy_availability"
+
     get "/locations/:id/booking", to: "availabilities#book", as: "book"
-    post "/locations/:id/booking/create", to: "availabilities#create", as: "create_booking"
+    post "/locations/:id/booking/create", to: "availabilities#create_booking", as: "create_booking"
 
     get "/bookings/", to: "availabilities#display", as: "my_bookings"
-    delete "/bookings/:id", to: "availabilities#destroy", as: "destroy_booking"
+    patch "/bookings/:id", to: "availabilities#delete_user_from_booking", as: "delete_from_booking"
 
   end
 end

@@ -17,6 +17,7 @@ gem 'font-awesome-sass', '~> 5.0.9'
 gem "pundit"
 gem 'sass-rails'
 gem 'simple_form'
+gem 'simple-form-datepicker'
 gem 'uglifier'
 gem 'webpacker'
 

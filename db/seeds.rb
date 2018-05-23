@@ -1,12 +1,16 @@
 require 'faker'
 require 'open-uri'
 
+Location.destroy_all
+User.destroy_all
+# Availability.destroy_all
+
 users = []
 locations = []
 a = 0
 i = 0
 
-100.times do
+10.times do
   user = User.new(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -45,10 +49,18 @@ end
   locations << location
 end
 
+
 10.times do
 
   365.times do
-    avail = Availability.create(location: locations[a], user: users.sample, date: Date.today + i, status: ["pending", "accepted", "denied"].sample)
+    avail = Availability.create!(
+      location: locations[a],
+      # user: nil,
+      # user: users.sample,
+      date: (Date.today + i.day),
+      status: nil
+      # status: ["pending", "accepted", "denied"].sample
+      )
     i += 1
     p avail
   end
