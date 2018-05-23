@@ -5,6 +5,10 @@ class LocationPolicy < ApplicationPolicy
     end
   end
 
+  def true
+    true
+  end
+
   def index?
     true
   end

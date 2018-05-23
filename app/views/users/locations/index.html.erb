@@ -5,22 +5,65 @@
   <%= link_to "New location", new_users_location_path %>
 
   <br>
-  <br>
+
 
   <% @locations.each do |l| %>
     <% if policy(l).index? %>
 
-      <%= l.id %> - <%= l.name %> | <%= l.description %>
+      <h3> <%= l.id %> - <%= l.name %> | <%= l.description %> </h3>
 
+      <%= link_to "Show", location_path(l), class: "btn btn-primary" %>
 
       <% if policy(l).users_edit? %>
-        <%= link_to "Update", edit_users_location_path(l) %>
+        <%= link_to "Create Availability", users_new_availability_path(l), class: "btn btn-success" %>
+      <% end %>
+
+      <% if policy(l).users_edit? %>
+        <%= link_to "Update", edit_users_location_path(l), class: "btn btn-warning" %>
       <% end %>
 
       <% if policy(l).users_destroy? %>
-        <%= link_to "Delete", users_location_path(l), :method => :delete %>
+        <%= link_to "Delete", users_location_path(l), :method => :delete,  class: "btn btn-danger" %>
       <% end %>
 
+      <br>
+      <br>
+
+
+      <h4>Location available for booking on the following dates:</h4>
+
+      <h4>Requested Availabilities</h4>
+
+
+      <% l.availabilities.each do |a| %>
+        <% if a.status != nil %>
+
+          <h5>Date: <%= a.date.strftime("%A, %b %d %Y") %> | Status: <%= a.status %></h5>
+          <%= link_to "Accept Renter",  users_accept_availability_path(a), :method => :patch, class: "btn btn-success btn-sm" %>
+          <%= link_to "Discard Renter",  users_decline_availability_path(a), :method => :patch, class: "btn btn-warning btn-sm" %>
+          <%= link_to "Delete Availability", users_destroy_availability_path(a), :method => :delete,  class: "btn btn-danger btn-sm" %>
+          <br>
+          <br>
+
+        <% end %>
+
+      <% end %>
+
+      <h4>Open Availabilities</h4>
+
+      <% l.availabilities.each do |a| %>
+
+        <% if a.status.nil? %>
+
+          <h5>Date: <%= a.date.strftime("%A, %b %d %Y") %> | Status: <%= a.status %></h5>
+          <%= link_to "Accept Renter",  users_accept_availability_path(a), :method => :patch, class: "btn btn-success btn-sm" %>
+          <%= link_to "Discard Renter",  users_decline_availability_path(a), :method => :patch, class: "btn btn-warning btn-sm" %>
+          <%= link_to "Delete Availability", users_destroy_availability_path(a), :method => :delete,  class: "btn btn-danger btn-sm" %>
+          <br>
+
+        <% end %>
+
+      <% end %>
 
     <% end %>
 

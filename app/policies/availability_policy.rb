@@ -5,6 +5,10 @@ class AvailabilityPolicy < ApplicationPolicy
     end
   end
 
+  def true
+    true
+  end
+
   def index?
     true
   end
@@ -13,11 +17,27 @@ class AvailabilityPolicy < ApplicationPolicy
     true
   end
 
-  def users_destroy?
+  def users_create_availability?
+    true
+  end
+
+  def users_manage?
     record.user == user
+  end
+
+  def users_destroy?
+    true
   end
 
   def users_book?
     true
+  end
+
+  def accept?
+    record.location.user == user
+  end
+
+  def decline?
+    record.location.user == user
   end
 end
