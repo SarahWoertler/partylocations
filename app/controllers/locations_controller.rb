@@ -10,6 +10,16 @@ class LocationsController < ApplicationController
       @locations = Location.all
     end
 
+    @locations_with_position = Location.where.not(latitude: nil, longitude: nil)
+
+    @markers = @locations_with_position.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/locations/map_box", locals: { flat: flat }) }
+      }
+    end
+
 
     @locations = policy_scope(@locations)
     @users = policy_scope(@users)

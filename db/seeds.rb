@@ -22,13 +22,14 @@ end
 10.times do
 
   location = Location.create(
-  name: Faker::FamilyGuy.location,
+  name: Faker::Company.name,
   description: Faker::Lorem.paragraph,
   size: rand(10..2000),
   capacity: rand(5..200),
   price: rand(100..20000),
-  lat: Faker::Address.latitude,
-  lng: Faker::Address.longitude,
+  address: Faker::Address.city,
+  # latitude: Faker::Address.latitude,
+  # longitude: Faker::Address.longitude,
   location_type: ["Bar", "Restaurant", "Club", "Other"].sample,
   occasion: ["Wedding", "Birthday", "Corporate", "Family", "Other"].sample,
   accessible: ["true", "false"].sample == "true",
