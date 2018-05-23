@@ -3,6 +3,14 @@ class LocationsController < ApplicationController
   before_action :all_vars, only: [:index] #gets all @locations, @users, @avail
 
   def index
+
+    if params[:query].present?
+      @locations = Location.where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @locations = Location.all
+    end
+
+
     @locations = policy_scope(@locations)
     @users = policy_scope(@users)
     @avail = policy_scope(@avail)

@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="main-container">
+    <div class="cards-container">
+      <div class="row">
+        <% @locations.each do |location| %>
+          <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://www.top10berlin.de/sites/top10berlin.de/files/styles/list_image/public/location/mainimages/2017/09/11/jamboree_bar_interior_foto_grand-hyatt-berlin.jpg?itok=vCCyi_OV);">
+              <div class="card-description">
+                <h4><%= location.name %></h4>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div id="map" >
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Locator_map_Berlin_in_Germany.svg" alt="map placeholder">
+    </div>
+  </div>
+</div>
