@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :locations, except: [:show]
 
     get "/locations/:id/booking", to: "availabilities#book", as: "book"
-    post "/locations/:id/booking/create", to: "availabilities#create"
+    post "/locations/:id/booking/create", to: "availabilities#create", as: "create_booking"
 
     get "/bookings/", to: "availabilities#display", as: "my_bookings"
     delete "/bookings/:id", to: "availabilities#destroy", as: "destroy_booking"

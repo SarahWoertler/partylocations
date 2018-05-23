@@ -16,4 +16,8 @@ class AvailabilityPolicy < ApplicationPolicy
   def users_destroy?
     record.user == user
   end
+
+  def users_book?
+    true
+  end
 end
