@@ -9,8 +9,9 @@
   <%= f.input :price %>
 
   <!-- Should be done with algolia later -->
-  <%= f.input :lat, input_html: {value: f.object.lat || '52.520007'} %>
-  <%= f.input :lng, input_html: {value: f.object.lat || '13.404954'} %>
+  <%= f.input :address, input_html: {value: 'berlin'} %>
+  <%= f.input :latitude, input_html: {value: '52.520007'} %>
+  <%= f.input :longitude, input_html: {value: '13.404954'} %>
 
   <%= f.input :location_type, as: :select, collection: ["Bar", "Restaurant", "Club", "Other"] %>
   <%= f.input :occasion, as: :select, collection: ["Wedding", "Birthday", "Corporate", "Family", "Other"] %>
