@@ -9,4 +9,8 @@
   </div>
 </div>
 
- <%=  link_to "Book", users_book_path(@location), class: "btn btn-primary" %>
+<% if @location.user_id == current_user.id %>
+ <%=  link_to "Edit your Location", edit_users_location_path(@location), class: "btn btn-primary" %>
+<% else %>
+ <%=  link_to "Book now", users_book_path(@location), class: "btn btn-primary" %>
+<% end %>

@@ -23,7 +23,7 @@ class Users::AvailabilitiesController < ApplicationController
   end
 
   def destroy_availability
-    @avail = Availability.find(params[:id])
+    @avail = Availability.find(params[:availability_id])
     @avail.delete
 
     authorize @avail, :users_destroy?
@@ -31,14 +31,14 @@ class Users::AvailabilitiesController < ApplicationController
     redirect_to users_locations_path
   end
 
-  def manage_availability
-    raise
+  # def manage_availability
+  #   raise
 
-    @locations = Location.where(user: current_user)
-    @avails = Availability.where(location: @locations)
+  #   @locations = Location.where(user: current_user)
+  #   @avails = Availability.where(location: @locations)
 
-    raise
-  end
+  #   raise
+  # end
 
 
   def book
@@ -72,7 +72,7 @@ class Users::AvailabilitiesController < ApplicationController
 
     avail.user_id = current_user.id
 
-    avail.save!
+    avail.save
 
     authorize avail, :true
 
@@ -92,7 +92,7 @@ class Users::AvailabilitiesController < ApplicationController
 
   def accept
     availability = Availability.find(params[:id])
-    availability.status = 'accepted'
+    availability.status = 'Accepted'
     availability.save!
     authorize availability
 
@@ -101,7 +101,7 @@ class Users::AvailabilitiesController < ApplicationController
 
   def decline
     availability = Availability.find(params[:id])
-    availability.status = 'declined'
+    availability.status = 'Declined'
     availability.save!
 
     authorize availability

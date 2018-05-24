@@ -1,0 +1,67 @@
+<div class="row">
+  <% @avails.each do |a|  %>
+
+    <h3 class="container" id="booking-headline">Your booking with id: <%= a.id %></h3>
+
+    <div class="container booking">
+        <div class="row">
+          <ul class="list-group">
+            <li class="list-group-item">
+              <p>Name: <%= a.location.name %></p>
+              <p>Description: <%= a.location.description %></p>
+            </li>
+            <li class="list-group-item">
+              <p>Size: <%= a.location.size %> m2</p>
+              <p>Capacity: <%= a.location.capacity %> People</p>
+              <p>Price: <%= a.location.price %> Euro</p>
+            </li>
+            <li class="list-group-item">
+              <p>Location Type: <%= a.location.location_type %></p>
+              <p>Occasion: <%= a.location.occasion %></p>
+            </li>
+            <li class="list-group-item">
+              <p>Accessible: <%= a.location.accessible %></p>
+              <p>Catering: <%= a.location.catering %></p>
+              <p>Parking: <%= a.location.parking %></p>
+              <p>Smoking: <%= a.location.smoking %></p>
+              <p>Music: <%= a.location.music %></p>
+            </li>
+          </ul>
+        </div>
+
+<!--       <div class="row">
+        <h4>User Booking the Location:</h4>
+        <p><%# a.user.first_name %> <%= a.user.last_name %>  <%= a.user.email %> </p>
+      </div> -->
+
+
+      <div class="row">
+        <ul class="list-group">
+          <li class="list-group-item">
+            <span>
+              <p>Status: </p>
+              <% if a.status = "Accepted"  %>
+                <p style="color: green; font-weight: bolder;">Accepted</p>
+              <% else %>
+                <p style="color: red; font-weight: bolder;">Declined</p>
+              <% end %>
+            </span>
+          </li>
+          <li class="list-group-item">
+            <p>Date: </p>
+            <p><%= a.date.strftime('%A, %b %d') %></p>
+            <p>User providing the Location:</p>
+            <p><%= a.location.user.first_name %> <%= a.location.user.last_name %></p>
+          </li>
+        </ul>
+        <ul style="padding-left: 0">
+          <li class="list-group-item">
+            <%= mail_to a.location.user.email, "Contact provider", class: "btn btn-primary" %>
+            <%= link_to "Cancel your booking", users_delete_from_booking_path(a.id), method: 'patch', class: "btn btn-danger btn-sm", data: { confirm: 'Are you sure?'} %>
+          </li>
+          </ul>
+      </div>
+    </div>
+    <br>
+  <% end %>
+</div>

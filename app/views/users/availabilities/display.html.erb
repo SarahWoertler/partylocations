@@ -1,38 +1,19 @@
-<!-- show all bookings (i.e. availabilities) the current user has made for the current users -->
+<!-- show all bookings (i.e. availabilities with current_user id assigned) the current user has made -->
+
+
 
 <div class="container">
-
-  <% @avails.each do |a|  %>
-
-    <h3>Rental information:</h3>
+  <div class="row">
+    <h2>Booking Overview</h2>
     <br>
+  </div>
+  <div class="row">
+    <% if @avails.length == 0 %>
+      <h3>You have no bookings yet</h3>
+      <br>
+      <%= link_to "See what's on offer!", locations_path, class: "btn btn-primary" %>
+    <% end %>
+  </div>
 
-    <h4>Booking:</h4>
-    <p>Date: <%= a.date.strftime('%A, %b %d') %></p>
-    <p>User providing the Location: <%= a.location.user.first_name %> <%= a.location.user.last_name %></p>
-    <p>Contact provider: <%= a.location.user.email %></p>
-    <br>
 
-    <h4>Location:</h4>
-    <p>Name: <%= a.location.name %></p>
-    <p>Description: <%= a.location.description %></p>
-    <p>Size: <%= a.location.size %> m2</p>
-    <p>Capacity: <%= a.location.capacity %> People</p>
-    <p>Price: <%= a.location.price %> Euro</p>
-    <p>Location Type: <%= a.location.location_type %></p>
-    <p>Occasion: <%= a.location.occasion %></p>
-    <p>Accessible: <%= a.location.accessible %></p>
-    <p>Catering: <%= a.location.catering %></p>
-    <p>Parking: <%= a.location.parking %></p>
-    <p>Smoking: <%= a.location.smoking %></p>
-    <p>Music: <%= a.location.music %></p>
-    <br>
-
-    <h4>User Booking the Location:</h4>
-    <p><%= a.user.first_name %> <%= a.user.last_name %>  <%= a.user.email %> </p>
-
-    <%= link_to "Cancel your booking", users_delete_from_booking_path(a.id), method: 'patch', class: "btn btn-danger", data: { confirm: 'Are you sure?'} %>
-    <br>
-    <br>
-  <% end %>
-</div>
+<%= render "shared/offer" %>
