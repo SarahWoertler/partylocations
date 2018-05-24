@@ -1,6 +1,13 @@
 <div class="container">
   <%= simple_form_for([:users, @avail], :url => users_create_availability_path, :method => :post) do |f| %>
-    <%= f.input :date, as: :date, html5: true %>
+  <div class='input-group date' id='datetimepicker1'>
+      <%= text_field_tag(:date, "", class: 'form-control') %>
+      <span class="input-group-addon">
+          <span class="glyphicon glyphicon-calendar"></span>
+      </span>
+  </div>
     <%= f.submit :"Make available on selected date" %>
   <% end %>
 </div>
+
+
