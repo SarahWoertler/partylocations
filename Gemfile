@@ -14,12 +14,17 @@ gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
 gem 'devise'
 gem 'font-awesome-sass', '~> 5.0.9'
+gem 'pg_search'
 gem "pundit"
 gem 'sass-rails'
 gem 'simple_form'
 gem 'simple-form-datepicker'
 gem 'uglifier'
 gem 'webpacker'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
+gem 'jquery-rails'
+
 
 gem 'faker'
 

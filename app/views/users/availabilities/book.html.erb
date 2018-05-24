@@ -1,9 +1,25 @@
 <%# raise %>
 
 <h2> Select an available date for <%= @location.name %></h3>
-<div class="container">
+<!-- <div class="container">
   <%= simple_form_for([:users, @avail], url: users_create_booking_path, method: :post) do |f| %>
   <%= f.input :date, collection: @avails_dates %>
   <%= f.submit :"Book Now" %>
   <% end %>
+</div> -->
+
+<div class="container">
+    <div class="row">
+        <div class='col-sm-6'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </div>
