@@ -59,7 +59,7 @@ end
       # user: users.sample,
       date: (Date.today + i.day),
       status: nil
-      # status: ["pending", "accepted", "denied"].sample
+      # status: ["Pending", "Accepted", "Denied"].sample
       )
     i += 1
     p avail
