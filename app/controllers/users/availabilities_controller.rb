@@ -23,7 +23,7 @@ class Users::AvailabilitiesController < ApplicationController
   end
 
   def destroy_availability
-    @avail = Availability.find(params[:id])
+    @avail = Availability.find(params[:availability_id])
     @avail.delete
 
     authorize @avail, :users_destroy?
