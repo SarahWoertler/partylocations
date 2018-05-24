@@ -52,7 +52,7 @@ class Users::LocationsController < ApplicationController
   end
 
   def location_params
-    params.require(:location).permit(:name, :description, :size, :capacity, :price, :lat, :lng, :type, :occasion, :accessible, :catering, :parking, :smoking, :music)
+    params.require(:location).permit(:name, :description, :size, :capacity, :price, :lat, :lng, :type, :occasion, :accessible, :catering, :parking, :smoking, :music, :address)
   end
 
   def all_vars

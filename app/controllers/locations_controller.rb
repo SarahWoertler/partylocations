@@ -18,7 +18,7 @@ class LocationsController < ApplicationController
         lat: location.latitude,
         lng: location.longitude,
         # setLabel(location.id)
-        label: location.id.to_s
+        # label: location.id.to_s
       }
 
     end
