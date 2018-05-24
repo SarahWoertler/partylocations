@@ -12,8 +12,7 @@
         <% @locations.each do |location| %>
           <div class="col-xs-12 col-sm-6 col-md-6">
           <%= link_to location_path(location) do %>
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://www.top10berlin.de/sites/top10berlin.de/files/styles/list_image/public/location/mainimages/2017/09/11/jamboree_bar_interior_foto_grand-hyatt-berlin.jpg?itok=vCCyi_OV);">
-              <div class="card-description">
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path location.photo%>')">
                 <h4><%= location.name%></h4>
               </div>
               <div class="card-category">
