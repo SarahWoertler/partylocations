@@ -4,9 +4,22 @@
     <p>______________________________________________________________________________</p>
   </div>
 
+
+
+<!-- <div id="filter-container">
+  <div> <#%= form_tag locations_path, method: :get do %>
+      <#%= select_tag(:category, '<option value="">All</option><option value="Bar">Bar</option><option value="Restaurant">Restaurant</option><option value="Club">Club</option><option value="Other">Other</option>'.html_safe) %>
+      <#%= select_tag(:occasion, '<option value="">All</option><option value="Wedding">Wedding</option><option value="Birthday">Birthday</option><option value="Corporate">Corporate</option><option value="Family">Family</option><option value="Other">Other</option>'.html_safe) %>
+    <#%= submit_tag("Search") %>
+
+    <#% end %>
+</div>
+</div>
+ -->
+
+
+
   <div class="main-container">
-
-
     <div class="cards-container">
       <div class="row">
         <% @locations.each do |location| %>
