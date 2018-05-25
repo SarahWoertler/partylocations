@@ -1,57 +1,61 @@
 <div class="row">
-  <% @avails.each do |a|  %>
+  <% avails.each do |a|  %>
 
-    <h3 class="container" id="booking-headline">Your booking with id: <%= a.id %></h3>
 
     <div class="container booking">
-        <div class="row">
-          <ul class="list-group">
-            <li class="list-group-item">
-              <p>Name: <%= a.location.name %></p>
-              <p>Description: <%= a.location.description %></p>
-            </li>
-            <li class="list-group-item">
-              <p>Size: <%= a.location.size %> m2</p>
-              <p>Capacity: <%= a.location.capacity %> People</p>
-              <p>Price: <%= a.location.price %> Euro</p>
-            </li>
-            <li class="list-group-item">
-              <p>Location Type: <%= a.location.location_type %></p>
-              <p>Occasion: <%= a.location.occasion %></p>
-            </li>
-            <li class="list-group-item">
-              <p>Accessible: <%= a.location.accessible %></p>
-              <p>Catering: <%= a.location.catering %></p>
-              <p>Parking: <%= a.location.parking %></p>
-              <p>Smoking: <%= a.location.smoking %></p>
-              <p>Music: <%= a.location.music %></p>
-            </li>
-          </ul>
+      <div class="row">
+        <div class="card" id="offer-banner" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('<%= cl_image_path a.location.photo%>')">
+          <div class="offer-banner-description">
+            <h2 id="booking-headline"><%= a.location.name%></h5>
+            <h3 id="booking-subheadline">Booking Details</h3>
+          </div>
         </div>
+      </div>
+      <div class="row">
+        <ul class="list-group">
+          <li class="list-group-item">
+           <p class="info-text"><i class="fa-icon fas fa-info-circle"></i><%= a.location.description %></p>
+          </li>
+          <li class="list-group-item">
+            <p class="info-text"><i class="fa-icon fas fa-ruler"></i><%= a.location.size %> m2</p>
+            <p class="info-text"><i class="fa-icon fas fa-users"></i><%= a.location.capacity %> People</p>
+            <p class="info-text"><i class="fa-icon fas fa-euro-sign"></i><%= a.location.price %> Euro</p>
+          </li>
+          <li class="list-group-item">
+            <p class="info-text"><i class="fa-icon fas fa-home"></i><%= a.location.location_type %></p>
+            <p class="info-text"><i class="fa-icon fas fa-glass-martini"></i><%= a.location.occasion %></p>
+          </li>
+          <li class="list-group-item">
+            <p class="info-text"><i class="fa-icon fab fa-accessible-icon" style="<%= "color: lightgrey;" if a.location.accessible == false %>"></i></p>
+            <p class="info-text"><i class="fa-icon fas fa-utensils" style="<%= "color: lightgrey;" if a.location.catering == false %>"></i></p>
+            <p class="info-text"><i class="fa-icon fas fa-parking" style="<%= "color: lightgrey;" if a.location.parking == false %>"></i></p>
+            <p class="info-text"><i class="fa-icon fas fa-smoking"  style="<%= "color: lightgrey;" if a.location.smoking == false %>"></i></p>
+            <p class="info-text"><i class="fa-icon fas fa-music" style="<%= "color: lightgrey;" if a.location.music == false %>"></i></p>
+          </li>
+        </ul>
+      </div>
 
 <!--       <div class="row">
         <h4>User Booking the Location:</h4>
-        <p><%# a.user.first_name %> <%= a.user.last_name %>  <%= a.user.email %> </p>
+        <p class="info-text"><%# a.user.first_name %> <%= a.user.last_name %>  <%= a.user.email %> </p>
       </div> -->
 
 
       <div class="row">
         <ul class="list-group">
           <li class="list-group-item">
-            <span>
-              <p>Status: </p>
-              <% if a.status = "Accepted"  %>
-                <p style="color: green; font-weight: bolder;">Accepted</p>
-              <% else %>
-                <p style="color: red; font-weight: bolder;">Declined</p>
+              <p class="info-text">Status: </p>
+              <% if a.status == "Accepted"  %>
+                <p style="color: green; font-weight: bolder;" class="info-text">Accepted</p>
+              <% elsif a.status == "Pending" %>
+                <p style="color: grey; font-weight: bolder;" class="info-text">Pending</p>
+              <% else%>
+                <p style="color: red; font-weight: bolder;" class="info-text">Declined</p>
               <% end %>
-            </span>
           </li>
           <li class="list-group-item">
-            <p>Date: </p>
-            <p><%= a.date.strftime('%A, %b %d') %></p>
-            <p>User providing the Location:</p>
-            <p><%= a.location.user.first_name %> <%= a.location.user.last_name %></p>
+            <p class="info-text"><i class="fa-icon far fa-calendar-alt"></i><%= a.date.strftime('%A, %b %d') %></p>
+            <p class="info-text"><i class="fa-icon fas fa-user"></i><%= a.location.user.first_name %> <%= a.location.user.last_name %></p>
           </li>
         </ul>
         <ul style="padding-left: 0">
