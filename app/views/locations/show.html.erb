@@ -1,21 +1,75 @@
 <!-- show details of one single location -->
-  <div class="grid-details">
+<div class="grid-details">
 
-    <div class="details-image"></div>
-    <div class="location-description">
-      <h3><%= @location.name %></h3>
-      <p><%= @location.description %></p>
+  <div class="details-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @location.photo%>')">
+  </div>
+
+  <div class="location-description">
+    <br>
+    <h3><%= @location.name %></h3>
+    <p><%= @location.description %></p>
+  </div>
+
+  <div class="location-details-card">
+    <h4>Location Details</h4>
+      <p>______________________________________________________________</p>
+    <table class="table-details" style="table-layout:fixed">
+      <tr>
+        <td align="center" valign="center" class="fa-icon_1"><i class="fa-icon fas fa-euro-sign"></i></td>
+        <td align="center" valign="center" class="fa-icon_1"><i class="fas fa-users"></i></td>
+        <td align="center" valign="center" class="fa-icon_1"><i class="fas fa-utensils"></i></td>
+        <td align="center" valign="center" class="fa-icon_1"><i class="fas fa-music"></i></td>
+        <td align="center" valign="center" class="fa-icon_1"><i class="fas fa-parking"></i></td>
+        <td align="center" valign="center" class="fa-icon_1"><i class="fas fa-smoking"></i></td>
+        <td align="center" valign="center" class="fa-icon_1"><i class="fab fa-accessible-icon"></i></td>
+      </tr>
+      <tr>
+        <td align="center" valign="center" class="table-text"><%= @location.price %></td>
+        <td align="center" valign="center" class="table-text"><%= @location.capacity %></td>
+        <td align="center" valign="center" class="table-text"><% if @location.catering = true%>
+          <%= "yes" %>
+          <% else %>
+          <%= "no" %>
+          <% end %></td>
+        <td align="center" valign="center" class="table-text"><% if @location.music %>
+         <%= "yes" %>
+          <% else %>
+          <%= "no" %>
+          <% end %></td>
+        <td align="center" valign="center" class="table-text"><% if @location.parking %>
+          <%= "yes" %>
+          <% else %>
+          <%= "no" %>
+          <% end %></td>
+        <td align="center" valign="center" class="table-text"><% if @location.smoking %>
+          <%= "yes" %>
+          <% else %>
+          <%= "no" %>
+          <% end %></td>
+        <td align="center" valign="center" class="table-text"><% if @location.accessible %>
+          <%= "yes" %>
+          <% else %>
+          <%= "no" %>
+          <% end %></td>
+      </tr>
+    </table>
+    <br>
+    <br>
+
+      <div class="buttons-index">
+      <%if user_signed_in? %>
+      <% if @location.user_id == current_user.id %>
+       <%=  link_to "Edit your Location", edit_users_location_path(@location), class: "button-details" %>
+      <% else %>
+       <%=  link_to "Book now", users_book_path(@location), class: "button-details" %>
+      <% end %>
+      <% else %>
+      <%=  link_to "Book now", users_book_path(@location), class: "button-details" %>
+      <% end %>
+        
     </div>
   </div>
+
 </div>
 
 
-<% if user_signed_in? %>
-  <% if @location.user_id == current_user.id %>
-    <%=  link_to "Edit your Location", edit_users_location_path(@location), class: "btn btn-primary" %>
-  <% else %>
-    <%=  link_to "Book now", users_book_path(@location), class: "btn btn-primary" %>
-  <% end %>
-<% else %>
-  <%=  link_to "Book now", users_book_path(@location), class: "btn btn-primary" %>
-<% end %>
