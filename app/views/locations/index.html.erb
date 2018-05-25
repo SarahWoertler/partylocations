@@ -8,7 +8,7 @@
 
 <div id="filter-container">
   <div> <%= form_tag locations_path, method: :get do %>
-      <input type="text" name='location' value="<%= params[:location] %>" id="filter-component">
+      <input type="text" name='location' value="<%= params[:location] %>" id="filter-component" placeholder='City'>
        <% location_types = %w(Bar Restaurant Club Other) %>
       <select name="location_type" id="filter-component">
         <option value="">All</option>
