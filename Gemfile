@@ -25,6 +25,7 @@ gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 gem 'bootstrap'
 gem 'jquery-rails'
+gem 'carrierwave', '~> 1.2'
 
 
 gem 'faker'

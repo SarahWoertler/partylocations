@@ -10,6 +10,26 @@
   <br>
 
   <% @locations.each do |l| %>
+    <% if policy(l).index? %>
+
+      <h3> <%= l.id %> - <%= l.name %> | <%= l.description %> </h3>
+
+      <%= link_to "Show", location_path(l), class: "btn btn-primary" %>
+
+      <% if policy(l).users_edit? %>
+        <%= link_to "Create Availability", users_new_availability_path(l), class: "btn btn-success" %>
+      <% end %>
+
+      <% if policy(l).users_edit? %>
+        <%= link_to "Update", edit_users_location_path(l), class: "btn btn-warning" %>
+      <% end %>
+
+      <% if policy(l).users_destroy? %>
+        <%= link_to "Delete", users_location_path(l), :method => :delete,  class: "btn btn-danger" %>
+      <% end %>
+
+      <br>
+      <br>
 
   <div class="row">
     <div class="col-xs-4">
