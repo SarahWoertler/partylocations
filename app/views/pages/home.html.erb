@@ -6,7 +6,7 @@
 
     <%= form_tag locations_path, method: :get do %>
       <div class="form-input-wrapper">
-        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a Location"%>
+        <%= text_field_tag :location, params[:location], class: "form-control", placeholder: "Find a Location"%>
         <%= submit_tag 'Go', class: "button_submit" %>
       </div>
     <% end %>
