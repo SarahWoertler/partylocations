@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
-  <body>
+  <body class="site">
     <%= render "shared/flashes" %>
     <%= render "shared/navbar" %>
-    <div class="body-content" style="min-height: calc(100vh - 140px);">
+    <div class="site-content">
       <%= yield %>
     </div>
     <%= render "shared/footer" %>
