@@ -2,6 +2,44 @@
   margin: 20px 0px;
 }
 
-#booking-headline {
-  color: rgb(99, 203, 157);
+#booking-subheadline {
+  color: white;
+  font-weight: lighter;
+  text-align: center;
 }
+
+#offer-banner {
+  width: inherit;
+  height: 200px;
+  position: relative;
+  pointer-events:none;
+  border-radius: 4px 4px 0px 0px;
+  margin-bottom: 0px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.offer-banner-description {
+  font-size: 12px;
+  font-weight: lighter;
+}
+
+.fa-icon {
+  padding: 0px 20px 0px 0px;
+  font-size: 25px;
+  color: #5FCC9C;
+  padding: 5px;
+  margin-right: 5px;
+}
+
+.info-text {
+  display: inline-block;
+  margin: 5px 15px 5px 5px;
+}
+
+.details-list {
+  display: flex;
+
+}
+

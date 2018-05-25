@@ -387,16 +387,20 @@ end
 
 10.times do
 
+  day_var = 0
   365.times do
     avail = Availability.create!(
       location: locations[a],
       # user: nil,
       # user: users.sample,
-      date: (Date.today + i.day),
+      date: (Date.today + day_var.day),
       status: nil
       # status: ["Pending", "Accepted", "Denied"].sample
       )
-    i += 1
+    day_var += 1
+    rand_var = [true,false]
+
+    avail.destroy! if rand_var.sample
     p avail
   end
 
