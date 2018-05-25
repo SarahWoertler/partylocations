@@ -42,14 +42,8 @@ class Users::AvailabilitiesController < ApplicationController
 
 
   def book
-    @avails_dates = []
-
     @avail = Availability.new
-    @avails = Availability.where(location_id: params[:id], user_id: nil)
-
-    @avails.each do |a|
-      @avails_dates << a.date
-    end
+    @avails = Availability.where(location_id: params[:id], user_id: nil).pluck(:date)
 
     @location = Location.find(params[:id])
     @locations = Location.all
@@ -58,7 +52,6 @@ class Users::AvailabilitiesController < ApplicationController
 
     authorize @location, :true
     authorize @avail, :true
-    authorize @avails, :true
   end
 
   def create_booking
