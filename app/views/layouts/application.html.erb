@@ -13,7 +13,9 @@
   <body>
     <%= render "shared/flashes" %>
     <%= render "shared/navbar" %>
-    <%= yield %>
+    <div class="body-content" style="min-height: calc(100vh - 140px);">
+      <%= yield %>
+    </div>
     <%= render "shared/footer" %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>

@@ -1,0 +1,17 @@
+#place-image {
+  height: 100%;
+  display:block; /*remove inline-block spaces*/
+  width:100%;
+  object-fit: cover;
+}
+
+#text-container {
+  margin-top: 20px;
+}
+
+.image-div {
+  width:800px; /*container-width*/
+  overflow:hidden; /*hide bounds of image */
+  margin:0;   /*reset margin of figure tag*/
+  height: calc(100vh - 140px);
+}
