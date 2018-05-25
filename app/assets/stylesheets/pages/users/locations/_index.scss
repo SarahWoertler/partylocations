@@ -1,5 +1,5 @@
 .container {}
-  .body {
+  .content-body {
     min-height: calc(100vh - 140px);
 }
 
@@ -52,10 +52,11 @@
   }
 }
 
-
-// 250px
-
-// .card-buttons:first-child {
-//   float: left;
-//   overflow: auto;
-// }
+#location-head {
+  font-weight: bold;
+  box-sizing: border-box;
+  text-shadow: 2px 1px 3px rgba(0,0,0,0.1);
+  margin-bottom: 10px;
+  box-shadow: inset 0px 0 #5FCC9C;
+  color: #5FCC9C;
+}
