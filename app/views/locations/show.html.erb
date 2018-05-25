@@ -57,16 +57,19 @@
     <br>
 
       <div class="buttons-index">
+      <%if user_signed_in? %>
       <% if @location.user_id == current_user.id %>
        <%=  link_to "Edit your Location", edit_users_location_path(@location), class: "button-details" %>
       <% else %>
        <%=  link_to "Book now", users_book_path(@location), class: "button-details" %>
       <% end %>
+      <% else %>
+      <%=  link_to "Book now", users_book_path(@location), class: "button-details" %>
+      <% end %>
+        
     </div>
   </div>
 
 </div>
-
-
 
 

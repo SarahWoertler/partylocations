@@ -1,18 +1,18 @@
 .card {
   height: 150px;
-  width: 250px;
+  width: 240px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover ;
   background-position: center;
   // background: linear-gradient(to bottom right, black, white);
+  margin-top: 15px;
   color: white;
   position: relative;
-  margin-bottom: 20px;
   // margin-left: 20px;
   opacity: 0.9;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0,0,0,0.4);
-}
+ }
 
 
 .card:hover {
@@ -56,10 +56,10 @@
 
 }
 
-.cards-container {
-  // margin-left: 50px;
+// .cards-container {
+//   // margin-left: 50px;
 
-}
+// }
 
 // .card-description h2 {
 //   font-size: 24px;

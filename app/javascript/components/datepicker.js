@@ -5,17 +5,19 @@ import { datetimepicker } from 'eonasdan-bootstrap-datetimepicker'
 
 $('document').ready(function(){
 
-var a = $('#avails')
-var a_object = a.get()[0]
-console.log(a_object)
-// console.log(typeof a_object)
+var availableDatesRuby = JSON.parse(document.getElementById("avails").dataset.avails)
+var availableDatesJS = []
+availableDatesRuby.forEach((date) => {
+  availableDatesJS.push(moment(new Date(date)))
+})
+
+console.log(availableDatesJS)
 
   $(function () {
     $('#datetimepicker1').datetimepicker({
                  format: 'DD/MM/YYYY',
-                 disabledDates: [
-                     moment("05/24/2018"),
-                     ]
+                 minDate: new Date(),
+                 enabledDates: availableDatesJS
            });
   });
 });
