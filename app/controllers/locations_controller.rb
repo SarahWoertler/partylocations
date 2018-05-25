@@ -5,63 +5,26 @@ class LocationsController < ApplicationController
 
   def index
 
-    # i think this is not needed/ but keep it in case of bug
+   # i think this is not needed/ but keep it in case of bug
     # if params[:query].present?
     #   @locations = Location.search_for_location(params[:query])
     # else
     #   @locations = Location.all
     # end
 
-    if params[:query].present?
-      @locations = Location.search_for_location(params[:query])
-      @locations_with_position = @locations.where.not(latitude: nil, longitude: nil)
-      @markers = @locations_with_position.map do |location|
-        {
-          lat: location.latitude,
-          lng: location.longitude,
-          # setLabel(location.id)
-          # label: location.id.to_s
-        }
+    if params[:location].present?
+      @locations = Location.search_for_location(params[:location])
+      if params[:location_type].present?
+        @locations = @locations.where(location_type: params[:location_type])
       end
-
-      # for filter
-    # elsif params[:category].present? && params[:occasion].present?
-    #   @locations = Location.search_for_location(params[:category && :occasion])
-    #   @locations_with_position = @locations.where.not(latitude: nil, longitude: nil)
-    #   @markers = @locations_with_position.map do |location|
-    #     {
-    #       lat: location.latitude,
-    #       lng: location.longitude,
-    #       # setLabel(location.id)
-    #       # label: location.id.to_s
-    #     }
-    #   end
-    # elsif params[:category].present?
-    #   @locations = Location.search_for_location(params[:category])
-    #   @locations_with_position = @locations.where.not(latitude: nil, longitude: nil)
-    #   @markers = @locations_with_position.map do |location|
-    #     {
-    #       lat: location.latitude,
-    #       lng: location.longitude,
-    #       # setLabel(location.id)
-    #       # label: location.id.to_s
-    #     }
-    #   end
-    # elsif params[:occasion].present?
-    #   @locations = Location.search_for_location(params[:occasion])
-    #   @locations_with_position = @locations.where.not(latitude: nil, longitude: nil)
-    #   @markers = @locations_with_position.map do |location|
-    #     {
-    #       lat: location.latitude,
-    #       lng: location.longitude,
-    #       # setLabel(location.id)
-    #       # label: location.id.to_s
-    #     }
-    #   end
-      # for filter end
-
+      if params[:occasion].present?
+        @locations = @locations.where(occasion: params[:occasion])
+      end
     else
-      @locations_with_position = Location.where.not(latitude: nil, longitude: nil)
+      @locations = Location.all
+    end
+
+    @locations_with_position = @locations.where.not(latitude: nil, longitude: nil)
       @markers = @locations_with_position.map do |location|
         {
           lat: location.latitude,
@@ -70,7 +33,6 @@ class LocationsController < ApplicationController
           # label: location.id.to_s
         }
       end
-    end
 
     @locations = policy_scope(@locations)
     @users = policy_scope(@users)

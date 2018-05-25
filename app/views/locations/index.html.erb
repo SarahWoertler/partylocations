@@ -6,16 +6,32 @@
 
 
 
-<!-- <div id="filter-container">
-  <div> <#%= form_tag locations_path, method: :get do %>
-      <#%= select_tag(:category, '<option value="">All</option><option value="Bar">Bar</option><option value="Restaurant">Restaurant</option><option value="Club">Club</option><option value="Other">Other</option>'.html_safe) %>
-      <#%= select_tag(:occasion, '<option value="">All</option><option value="Wedding">Wedding</option><option value="Birthday">Birthday</option><option value="Corporate">Corporate</option><option value="Family">Family</option><option value="Other">Other</option>'.html_safe) %>
-    <#%= submit_tag("Search") %>
+<div id="filter-container">
+  <div> <%= form_tag locations_path, method: :get do %>
+      <input type="text" name='location' value="<%= params[:location] %>" id="filter-component">
+       <% location_types = %w(Bar Restaurant Club Other) %>
+      <select name="location_type" id="filter-component">
+        <option value="">All</option>
+        <% location_types.each do |location_type| %>
+          <option value="<%= location_type %>" <%= 'selected' if location_type == params[:location_type] %> ><%= location_type %></option>
+        <% end %>
+      </select>
+      <% occasions = %w(Wedding Birthday Corporate Family Other) %>
+      <select name="occasion" id="filter-component">
+        <option value="">All</option>
+        <% occasions.each do |occasion| %>
+          <option value="<%= occasion %>" <%= 'selected' if occasion == params[:occasion] %> ><%= occasion %></option>
+        <% end %>
+      </select>
 
-    <#% end %>
+    <!-- <div id="filter-button"> -->
+    <%= submit_tag("Search") %>
+    <!-- </div> -->
+    <!-- <button type="submit" form="form1" value="Submit">Submit</button> -->
+    <% end %>
 </div>
 </div>
- -->
+
 
 
 
