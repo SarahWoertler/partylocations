@@ -27,6 +27,7 @@
       <% if policy(l).users_destroy? %>
         <%= link_to "Delete", users_location_path(l), :method => :delete,  class: "btn btn-danger" %>
       <% end %>
+    <% end %>
 
       <br>
       <br>
@@ -92,4 +93,3 @@
     </div>
   <% end %>
 </div>
-
