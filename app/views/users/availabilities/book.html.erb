@@ -7,8 +7,9 @@
 <div class="container">
   <div class="row">
     <div class='col-xs-12 col-sm-4' id="text-container">
-      <h2> Select an available date for <%= @location.name %></h3>
+      <h3> Select an available date for <%= @location.name %></h3>
       <h4>You can book the location on a daily basis. Please make your choice below</h3>
+
       <%= form_for([:users, @avail], url: users_create_booking_path) do %>
       <br>
       <br>
@@ -27,7 +28,7 @@
         </div>
       <% end %>
     </div>
-    <div class=" col-xs-12 col-sm-6">
+    <div class="col-xs-12 col-sm-6">
       <div class="image-div">
         <%= cl_image_tag @location.photo, id: "place-image" %>
       </div>

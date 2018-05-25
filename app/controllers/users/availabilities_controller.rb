@@ -16,7 +16,6 @@ class Users::AvailabilitiesController < ApplicationController
     date =  Time.zone.parse(params[:date])
     location = Location.find(params[:id])
     avail = Availability.create(location_id: location.id, date: date)
-
     authorize avail, :users_create_availability?
 
     redirect_to users_locations_path
@@ -56,13 +55,12 @@ class Users::AvailabilitiesController < ApplicationController
 
   def create_booking
     location = Location.find(params[:id])
-
     avail_date = params[:date]
 
-    avail = Availability.find_by_date(avail_date)
+    avails_location = Availability.where(location: location)
+    avail = avails_location.find_by_date(avail_date)
 
     avail.status = "Pending"
-
     avail.user_id = current_user.id
 
     avail.save

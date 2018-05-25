@@ -1,13 +1,30 @@
+<br>
 <div class="container">
-  <%= simple_form_for([:users, @avail], :url => users_create_availability_path, :method => :post) do |f| %>
-  <div class='input-group date' id='datetimepicker1'>
-      <%= text_field_tag(:date, "", class: 'form-control') %>
-      <span class="input-group-addon">
-          <span class="glyphicon glyphicon-calendar"></span>
-      </span>
+  <div class="row" id="content-rows">
+    <div class='col-xs-12 col-sm-6 col-sm-offset-3' id="text-container">
+          <h2> Select an available date to start making money today</h3>
+          <h4>You can rent out the location on a daily basis. Please make your choice below</h3>
+
+      <%= form_for([:users, @avail], url: users_create_availability_path) do %>
+      <br>
+      <br>
+        <div class="form-group">
+          <div class='input-group date' id='datetimepicker2'>
+              <%= text_field_tag(:date, "", class: 'form-control') %>
+              <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+          </div>
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+            <br>
+          <div class="input-group-btn">
+            <button type="submit" class="btn btn-default" id="submit">Submit</button>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    </div>
   </div>
-    <%= f.submit :"Make available on selected date" %>
-  <% end %>
 </div>
 
 
