@@ -1,11 +1,13 @@
 <!-- show all the locations the current_user is owning / providing -->
 
-<div class="container">
+<div class="container body">
 
-  <%= link_to "New location", new_users_location_path %>
+  <div class="row">
+    <%= link_to "New location", new_users_location_path, class: "btn btn-success" %>
+  </div>
 
   <br>
-
+  <br>
 
   <% @locations.each do |l| %>
     <% if policy(l).index? %>
@@ -29,13 +31,33 @@
       <br>
       <br>
 
-    <%= cl_image_tag l.photo %>
+  <div class="row">
+    <div class="col-xs-4">
+      <div class="cards-container">
+        <div class="row card-info">
+          <%= link_to location_path(l) do %>
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://www.top10berlin.de/sites/top10berlin.de/files/styles/list_image/public/location/mainimages/2017/09/11/jamboree_bar_interior_foto_grand-hyatt-berlin.jpg?itok=vCCyi_OV);">
+            <div class="card-description">
+              <h4><%= l.name%></h4>
+            </div>
+            <div class="card-category">
+              <h5> <%= l.location_type %> </h5>
+            </div>
+          </div>
+          <% end %>
+        </div>
+        <div class="row card-buttons">
+          <i class="far fa-calendar-alt"><%= link_to "Set Dates", users_new_availability_path(l) %></i>
+          <i class="fas fa-edit"><%= link_to "Update", edit_users_location_path(l) %></i>
+          <i class="far fa-trash-alt"><%= link_to "Delete", users_location_path(l), :method => :delete %></i>
+        </div>
+      </div>
+    </div>
 
-
+    <div class="col-xs-8 col-offset-4">
       <h4>Location available for booking on the following dates:</h4>
 
       <h4>Requested Availabilities</h4>
-
 
       <% l.availabilities.each do |a| %>
         <% if a.status != nil %>
@@ -65,10 +87,9 @@
         <% end %>
 
       <% end %>
+    </div>
 
-    <% end %>
-
-    <br>
+    </div>
   <% end %>
 </div>
 

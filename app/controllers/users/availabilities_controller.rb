@@ -13,7 +13,7 @@ class Users::AvailabilitiesController < ApplicationController
   end
 
   def create_availability
-    date =  Time.zone.parse(params[:availability][:date])
+    date =  Time.zone.parse(params[:date])
     location = Location.find(params[:id])
     avail = Availability.create(location_id: location.id, date: date)
 
@@ -64,7 +64,7 @@ class Users::AvailabilitiesController < ApplicationController
   def create_booking
     location = Location.find(params[:id])
 
-    avail_date = params[:availability][:date]
+    avail_date = params[:date]
 
     avail = Availability.find_by_date(avail_date)
 

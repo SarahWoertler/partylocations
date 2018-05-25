@@ -10,8 +10,6 @@
   <%= f.input :capacity %>
   <%= f.input :price %>
   <%= f.input :address, input_html: { id: 'location_address' } %>
-  <%= f.input :latitude%>
-  <%= f.input :longitude%>
   <%= f.input :location_type, as: :select, collection: ["Bar", "Restaurant", "Club", "Other"] %>
   <%= f.input :occasion, as: :select, collection: ["Wedding", "Birthday", "Corporate", "Family", "Other"] %>
   <%= f.input :accessible %>
