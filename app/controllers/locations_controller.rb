@@ -7,22 +7,33 @@ class LocationsController < ApplicationController
 
     if params[:query].present?
       @locations = Location.search_for_location(params[:query])
+
     else
       @locations = Location.all
     end
 
-    @locations_with_position = Location.where.not(latitude: nil, longitude: nil)
-
-    @markers = @locations_with_position.map do |location|
-      {
-        lat: location.latitude,
-        lng: location.longitude,
-        # setLabel(location.id)
-        # label: location.id.to_s
-      }
-
+    if params[:query].present?
+      @locations = Location.search_for_location(params[:query])
+      @locations_with_position = @locations.where.not(latitude: nil, longitude: nil)
+      @markers = @locations_with_position.map do |location|
+        {
+          lat: location.latitude,
+          lng: location.longitude,
+          # setLabel(location.id)
+          # label: location.id.to_s
+        }
+      end
+    else
+      @locations_with_position = Location.where.not(latitude: nil, longitude: nil)
+      @markers = @locations_with_position.map do |location|
+        {
+          lat: location.latitude,
+          lng: location.longitude,
+          # setLabel(location.id)
+          # label: location.id.to_s
+        }
+      end
     end
-
 
     @locations = policy_scope(@locations)
     @users = policy_scope(@users)
